@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Визначаємо кодування сторінки -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Для адаптивності на мобільних пристроях -->
+    <title>Forums</title> <!-- Назва сторінки, яка відображатиметься на вкладці браузера -->
+    <link rel="stylesheet" href="style2.css"> <!-- Підключаємо зовнішній CSS файл для стилів -->
+</head>
+<body>
+    <header> <!-- Блок заголовка -->
+        <a href="index.html" class="back-button">&lt;</a> <!-- Кнопка для повернення на головну сторінку -->
+        <span class="title">Untitled</span> <!-- Заголовок сторінки -->
+        <a href="signout.html" class="sign-out">Sign Out</a> <!-- Кнопка для виходу з аккаунту -->
+    </header>
+    <main> <!-- Основний блок сторінки -->
+        <div class="sidebar"> <!-- Сайдбар для навігації -->
+            <input type="text" placeholder="Search..."> <!-- Поле для пошуку -->
+            <ul> <!-- Список форумних тем -->
+                <li><span>?</span> Zero-Day Vulnerability</li> <!-- Перша тема -->
+                <li><span>?</span> Exploit</li> <!-- Друга тема -->
+                <li><span>?</span> apk mod</li> <!-- Третя тема -->
+                <li class="selected"><span>?</span> Free Proxy Servers</li> <!-- Обрана тема (чотверта) -->
+            </ul>
+        </div>
+        <div class="content"> <!-- Блок з контентом теми -->
+            <h1>Title: Free Proxy Servers</h1> <!-- Заголовок теми -->
+            <p><strong>Post:</strong><br>
+                Looking for reliable free proxy servers. Need them for:<br> <!-- Опис публікації -->
+                - Browsing the web<br>
+                - Bypassing geo-restrictions<br>
+                - Web scraping (if supported)<br>
+                Feel free to share any trusted sources or lists!
+            </p>
+            <div class="comments"> <!-- Блок коментарів -->
+                <p><strong>Comments:</strong></p> <!-- Заголовок блоку коментарів -->
+                <p>User123: IP: 192.168.1.100</p> <!-- Приклад коментаря з IP -->
+                <p>Port: 8080</p> <!-- Приклад коментаря з портом -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>

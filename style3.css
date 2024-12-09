@@ -1,0 +1,80 @@
+/* Підключення шрифта */
+@font-face {
+  font-family: 'VTFont'; /* Назва шрифта */
+  src: url('font/VT.ttf') format('truetype'); /* Шлях до шрифта та його формат */
+}
+
+/* Загальні стилі */
+body {
+  margin: 0; /* Видаляємо відступи */
+  padding: 0; /* Видаляємо внутрішні відступи */
+  font-family: 'VTFont', Arial, sans-serif; /* Встановлюємо шрифт VT */
+  background-color: #000000; /* Чорний фон */
+  color: #d7ffb7; /* Колір тексту */
+  display: flex; /* Використовуємо flexbox для розташування елементів */
+  justify-content: center; /* Вирівнюємо контент по горизонталі */
+  align-items: center; /* Вирівнюємо контент по вертикалі */
+  height: 100vh; /* Висота екрану */
+}
+
+/* Стилі для контейнера */
+.container {
+  background-color: #333333; /* Темно-серий фон контейнера */
+  border: 2px solid #555555; /* Сіра рамка */
+  border-radius: 8px; /* Закруглені кути */
+  padding: 20px; /* Внутрішні відступи */
+  width: 90%; /* Ширина контейнера 90% */
+  max-width: 400px; /* Максимальна ширина контейнера */
+  text-align: center; /* Вирівнюємо текст по центру */
+  box-sizing: border-box; /* Ураховуємо padding та border в розмірах елементу */
+}
+
+/* Заголовок */
+h1 {
+  margin-bottom: 20px; /* Відступ знизу */
+  font-size: 22px; /* Розмір шрифта */
+  text-transform: uppercase; /* Перетворюємо текст на великі літери */
+}
+
+/* Поля вводу */
+form input {
+  width: 100%; /* Ширина поля вводу на 100% */
+  padding: 10px; /* Внутрішні відступи */
+  margin: 10px 0; /* Відступи зверху та знизу */
+  border: 1px solid #555555; /* Сіра рамка */
+  background-color: #222222; /* Темний фон для полів вводу */
+  color: #d7ffb7; /* Колір тексту */
+  font-size: 14px; /* Розмір шрифта */
+  box-sizing: border-box; /* Ураховуємо padding та border в розмірах елементу */
+}
+
+/* Кнопка */
+form button {
+  width: 100%; /* Ширина кнопки на 100% */
+  padding: 10px; /* Внутрішні відступи */
+  margin-top: 10px; /* Відступ зверху */
+  background-color: #333333; /* Темний фон кнопки */
+  color: #d7ffb7; /* Колір тексту кнопки */
+  border: 1px solid #d7ffb7; /* Рамка кнопки такого ж кольору, як і текст */
+  font-size: 16px; /* Розмір шрифта кнопки */
+  text-transform: uppercase; /* Перетворюємо текст на великі літери */
+  cursor: pointer; /* Курсор змінюється на вказівник */
+}
+
+form button:hover {
+  background-color: #444444; /* Трохи світліше при наведенні */
+}
+
+/* Стрілка для повернення */
+.back-arrow {
+  position: absolute; /* Абсолютне позиціонування */
+  top: 20px; /* Відступ зверху */
+  left: 20px; /* Відступ зліва */
+  font-size: 24px; /* Розмір шрифта для стрілки */
+  color: #d7ffb7; /* Колір стрілки */
+  text-decoration: none; /* Без підкреслення */
+}
+
+.back-arrow:hover {
+  color: #b0e19a; /* Колір стрілки стає світлішим при наведенні */
+}

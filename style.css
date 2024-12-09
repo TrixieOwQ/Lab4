@@ -1,0 +1,162 @@
+
+/* Підключення шрифта */
+@font-face {
+    font-family: "VTFont"; /* Вказуємо ім'я шрифта, який будемо використовувати */
+    src: url("font/VT.ttf") format("truetype"); /* Вказуємо шлях до файлу шрифта та його формат */
+}
+
+/* Базові стилі */
+* {
+    margin: 0; /* Встановлюємо нульовий відступ для всіх елементів */
+    padding: 0; /* Встановлюємо нульове внутрішнє відступлення для всіх елементів */
+    box-sizing: border-box; /* Враховуємо бордери та паддінги в загальний розмір елемента */
+    font-family: "VTFont", "Courier New", Courier, monospace; /* Встановлюємо шрифт для всіх елементів, спочатку "VTFont", потім резервні */
+}
+
+body {
+    background-color: #000; /* Чорний фон для тіла сторінки */
+    color: #d7ffb7; /* Світло-зелений колір тексту */
+    text-align: center; /* Вирівнюємо текст по центру */
+    height: 100vh; /* Висота тіла сторінки 100% від висоти вікна браузера */
+    display: flex; /* Використовуємо flexbox для вирівнювання елементів */
+    flex-direction: column; /* Встановлюємо вертикальне вирівнювання */
+    justify-content: center; /* Вертикальне вирівнювання по центру */
+    align-items: center; /* Горизонтальне вирівнювання по центру */
+    overflow: hidden; /* Приховуємо прокрутку */
+    position: relative; /* Встановлюємо відносне позиціонування для коректної роботи z-index */
+}
+
+header {
+    position: absolute; /* Абсолютне позиціонування заголовка */
+    top: 0; /* Розміщуємо заголовок на самому верхньому рівні */
+    width: 100%; /* Заголовок займає всю ширину екрану */
+    padding: 10px 0; /* Відступи зверху та знизу */
+    z-index: 10; /* Заголовок буде знаходитися поверх інших елементів, наприклад, анімацій */
+}
+
+nav ul {
+    list-style: none; /* Вимикаємо маркери списку */
+    display: flex; /* Використовуємо flexbox для горизонтального розміщення елементів */
+    justify-content: flex-end; /* Вирівнюємо елементи праворуч */
+    padding-right: 20px; /* Відступ праворуч */
+}
+
+nav ul li + li {
+    margin-left: 20px; /* Відступ між елементами списку */
+}
+
+nav a {
+    color: #d7ffb7; /* Світло-зелений колір для посилань */
+    text-decoration: none; /* Вимикаємо підкреслення тексту */
+    font-size: 14px; /* Розмір шрифта для посилань */
+}
+
+h1 {
+    font-size: 64px; /* Розмір шрифта для заголовка */
+    letter-spacing: 5px; /* Міжлітерний інтервал */
+    opacity: 0; /* Початкова прозорість заголовка */
+    animation: fadeIn 2s forwards; /* Анімація для плавного з'явлення заголовка */
+}
+
+/* Анімація для плавного появлення заголовка */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Змінюємо прозорість до 1 (повна видимість) */
+    }
+}
+
+p {
+    font-size: 16px; /* Розмір шрифта для абзаців */
+    margin-top: 20px; /* Відступ зверху */
+    line-height: 1.5; /* Висота рядка для зручності читання */
+}
+
+form {
+    margin-top: 20px; /* Відступ зверху для форми */
+    position: relative; /* Встановлюємо відносне позиціонування форми */
+    z-index: 20; /* Форма буде поверх анімаційних елементів */
+}
+
+input[type="text"], button {
+    padding: 5px; /* Відступи всередині поля вводу та кнопки */
+    border: 1px solid #d7ffb7; /* Світло-зелена рамка для полів вводу та кнопки */
+    background: transparent; /* Прозорий фон */
+    color: #d7ffb7; /* Світло-зелений колір тексту */
+    font-family: inherit; /* Спадкуємо шрифт від батьківського елемента */
+    cursor: pointer; /* Курсор у вигляді руки при наведенні */
+    transition: background-color 0.3s, color 0.3s; /* Плавний перехід між кольорами фону та тексту */
+    z-index: 20; /* Встановлюємо поля вводу та кнопки поверх інших елементів */
+    position: relative; /* Для коректної роботи z-index */
+}
+
+/* Ефект при фокусуванні на полі вводу або при наведенні на кнопку */
+button:hover, input[type="text"]:focus {
+    background-color: #d7ffb7; /* Світло-зелений фон при фокусі */
+    color: #000; /* Чорний колір тексту при фокусі */
+}
+
+/* Пузирки */
+.bubbles {
+  position: absolute; /* Абсолютне позиціонування для контейнера з пузирями */
+  width: 100%; /* Ширина на весь екран */
+  height: 100%; /* Висота на весь екран */
+  overflow: hidden; /* Приховуємо елементи, що виходять за межі контейнера */
+  z-index: 1; /* Пузирки будуть під текстом */
+}
+
+.bubbles span {
+  position: absolute; /* Абсолютне позиціонування для кожного пузыря */
+  bottom: -50px; /* Початкова позиція пузыря за межами екрану */
+  width: 20px; /* Розмір пузыря */
+  height: 20px; /* Розмір пузыря */
+  background: #ffcc00; /* Жовтий колір для пузыря */
+  border-radius: 50%; /* Округлі кути для створення круглої форми */
+  opacity: 0.7; /* Трохи прозорий пузыр */
+  animation: rise 5s linear infinite; /* Анімація для піднімання пузыря */
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.7), 0 0 20px rgba(255, 204, 0, 0.5), 0 0 30px rgba(255, 204, 0, 0.3); /* Світловий ефект для пузыря */
+}
+
+.bubbles span:nth-child(2n) {
+  background: #00ff00; /* Зелені пузирі для чергування кольору */
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.3); /* Світловий ефект для зелених пузырів */
+}
+
+.bubbles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.bubbles span:nth-child(2) { left: 20%; animation-delay: 2s; }
+.bubbles span:nth-child(3) { left: 30%; animation-delay: 4s; }
+.bubbles span:nth-child(4) { left: 40%; animation-delay: 1s; }
+.bubbles span:nth-child(5) { left: 50%; animation-delay: 3s; }
+.bubbles span:nth-child(6) { left: 60%; animation-delay: 0.5s; }
+.bubbles span:nth-child(7) { left: 70%; animation-delay: 2.5s; }
+.bubbles span:nth-child(8) { left: 80%; animation-delay: 4.5s; }
+.bubbles span:nth-child(9) { left: 90%; animation-delay: 1.5s; }
+.bubbles span:nth-child(10) { left: 95%; animation-delay: 3.5s; }
+
+@keyframes rise {
+  0% {
+    transform: translateY(0); /* Початкова позиція пузыря */
+  }
+  100% {
+    transform: translateY(-110vh); /* Пузирі піднімаються за межі екрану */
+  }
+}
+
+/* Текст на верхньому шарі */
+.content {
+  position: relative; /* Встановлюємо відносне позиціонування для тексту */
+  z-index: 10; /* Текст буде поверх пузырів, щоб бути видимим */
+  padding: 20px; /* Відступи навколо тексту */
+  text-align: center; /* Центруємо текст всередині блоку */
+}
+
+.content h1 {
+  font-size: 2em; /* Розмір шрифта для заголовка */
+  color: #00ff00; /* Зелений колір для заголовка */
+  margin-bottom: 20px; /* Відступ знизу заголовка */
+}
+
+.content p {
+  font-size: 1.2em; /* Розмір шрифта для абзаців */
+  color: #00ff00; /* Зелений колір для абзаців */
+}
+
